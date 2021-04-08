@@ -3,29 +3,59 @@ import {useState} from "react";
 
 const url = 'https://jsonplaceholder.typicode.com/';
 
-const App = () =>{
+const App = () => {
     const [list, setList] = useState('posts');
 
 
-const selectPosts = (list) =>{
-    setList({list});
-    console.log(list);
-}
+    const selectPosts = () => {
+        setList('posts');
+    }
+    const selectComments = () => {
+        setList('comments');
+    }
+    const selectAlbums = () => {
+        setList('albums');
+    }
+    const selectPhotos = () => {
+        setList('photos');
+    }
+    const selectTodos = () => {
+        setList('todos');
+    }
+    const selectUsers = () => {
+        setList('users');
+    }
 
-  return(
-      <div className={'App'}>
+    return (
+        <div className={'App'}>
 
-        {/*<button onClick={selectPosts}>{'posts'}</button>*/}
-        <button onClick={selectPosts('posts')}>{'posts'}</button>
-        {/*<button onClick={''}>{'comments'}</button>*/}
-        {/*<button onClick={''}>{'albums'}</button>*/}
-        {/*<button onClick={''}>{'photos'}</button>*/}
-        {/*<button onClick={''}>{'todos'}</button>*/}
-        {/*<button onClick={''}>{'users'}</button>*/}
+            <button onClick={selectPosts}>{'posts'}</button>
+            <button onClick={selectComments}>{'comments'}</button>
+            <button onClick={selectAlbums}>{'albums'}</button>
+            <button onClick={selectPhotos}>{'photos'}</button>
+            <button onClick={selectTodos}>{'todos'}</button>
+            <button onClick={selectUsers}>{'users'}</button>
 
+            <hr/>
 
-      </div>
-  );
+            <div>
+
+                {/*{!todos.length && isLoadin && (<h1>LOADING DATA...</h1>)}*/}
+                {!todo && isLoadin && (<h1>LOADING DATA...</h1>)}
+
+                {/*{!!todos.length && (*/}
+                {!!todo && (
+                    <>
+                        <hr/>
+                        <h3>{todo.title} - {todo.completed.toString()} - {todo.id}</h3>
+                        <hr/>
+                    </>
+                )}
+
+            </div>
+
+        </div>
+    );
 }
 
 export default App;
