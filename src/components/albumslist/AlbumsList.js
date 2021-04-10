@@ -1,10 +1,10 @@
 import React from 'react';
 
-function AlbumsList({userId, title}) {
+function AlbumsList({data}) {
     return (
-        <h3>
-            userId: {userId} - title: {title}
-        </h3>
+        <>
+            {data.map(item => (<h3 key={item.id}>userId: {item.userId} - title: {item.title}</h3>))}
+        </>
     );
 }
 

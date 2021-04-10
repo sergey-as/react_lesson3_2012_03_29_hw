@@ -1,10 +1,11 @@
 import React from 'react';
+import Todo from "./Todo";
 
-function TodosList({userId, title, completed}) {
+function TodosList({data}) {
     return (
-        <h3>
-            userId: {userId} - title: {title}{!!completed ? ' - completed' : ' - NOTcompleted'}
-        </h3>
+        <>
+            {data.map(item => (<Todo key={item.id} userId={item.userId} title={item.title} completed={item.completed}/>))}
+        </>
     );
 }
 

@@ -1,11 +1,11 @@
 import React from 'react';
+import Post from "./Post";
 
-function PostsList({userId, title, body}) {
+function PostsList({data}) {
+
     return (
         <>
-            <h3>userId: {userId} - title: {title}</h3>
-            <h4>body: {body}</h4>
-            <br/>
+            {data.map(item => (<Post key={item.id} userId={item.userId} title={item.title} body={item.body}/>))}
         </>
     );
 }

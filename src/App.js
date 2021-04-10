@@ -32,7 +32,7 @@ const url = 'https://jsonplaceholder.typicode.com/';
 const App = () => {
     const [list, setList] = useState('posts');
     const [data, setData] = useState([]);
-    const [isLoadin, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
 
     const selectList = (list) => {
@@ -70,17 +70,17 @@ const App = () => {
 
             <div>
 
-                {!data.length && isLoadin && (<h1>LOADING DATA...</h1>)}
+                {!data.length && isLoading && (<h1>LOADING DATA...</h1>)}
 
                 {!!data && (
                     <>
                         <hr/>
-                        {list === 'posts' && (data.map(item => (<PostsList key={item.id} userId={item.userId} title={item.title} body={item.body}/>)))}
-                        {list === 'comments' && (data.map(item => (<CommentsList key={item.id} postId={item.postId} name={item.name} email={item.email} body={item.body}/>)))}
-                        {list === 'albums' && (data.map(item => (<AlbumsList key={item.id} userId={item.userId} title={item.title}/>)))}
-                        {list === 'photos' && (data.map(item => (<PhotosList key={item.id} albumId={item.albumId} title={item.title} url={item.url} thumbnailUrl={item.thumbnailUrl}/>)))}
-                        {list === 'todos' && (data.map(item => (<TodosList key={item.id} userId={item.userId} title={item.title} completed={item.completed}/>)))}
-                        {list === 'users' && (data.map(item => (<UsersList key={item.id} user={item}/>)))}
+                        {list === 'posts' && (<PostsList data={data}/>)}
+                        {list === 'comments' && (<CommentsList data={data}/>)}
+                        {list === 'albums' && (<AlbumsList data={data}/>)}
+                        {list === 'photos' && (<PhotosList data={data}/>)}
+                        {list === 'todos' && (<TodosList data={data}/>)}
+                        {list === 'users' && (<UsersList data={data}/>)}
                         <hr/>
                     </>
                 )}

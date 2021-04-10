@@ -1,11 +1,11 @@
 import React from 'react';
+import Comment from "./Comment";
 
-function CommentsList(props) {
+function CommentsList({data}) {
+
     return (
         <>
-            <h3>postId: {props.postId} - name: {props.name} - email: {props.email}</h3>
-            <h4>body: {props.body}</h4>
-            <br/>
+            {data.map(item => (<Comment key={item.id} postId={item.postId} name={item.name} email={item.email} body={item.body}/>))}
         </>
     );
 }

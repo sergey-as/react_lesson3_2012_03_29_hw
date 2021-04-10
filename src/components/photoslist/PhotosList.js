@@ -1,12 +1,10 @@
 import React from 'react';
+import Photo from "./Photo";
 
-function PhotosList(props) {
+function PhotosList({data}) {
     return (
         <>
-            <h4>albumId: {props.albumId} - title: {props.title} - email: {props.email}</h4>
-            <h5>url: {props.url}</h5>
-            <h5>thumbnailUrl: {props.thumbnailUrl}</h5>
-            <br/>
+            {data.map(item => (<Photo key={item.id} albumId={item.albumId} title={item.title} url={item.url} thumbnailUrl={item.thumbnailUrl}/>))}
         </>
     );
 }
